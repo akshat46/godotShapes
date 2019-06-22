@@ -10,7 +10,10 @@ const JMP_HEIGHT = 460
 var motion = Vector2()
 var velocity = Vector2()
 var friction = false
-var collision
+var bounce_count = 3
+var bouncing = false
+var was_in_air = -1
+#var collision
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,22 +24,32 @@ func _physics_process(delta):
 	motion.y += G
 	
 	if is_on_floor():
+		if bouncing:
+			was_in_air += 1
+			bounce()
 		if Input.is_action_pressed("ui_space"):
 			motion.y = -JMP_HEIGHT
 		if friction:
 			motion.x = lerp(motion.x, 0, 0.3)
 	else:
+		was_in_air = 0
 		motion.x = lerp(motion.x, 0, 0.05)
+		bouncing = true
 	
 	movement_handler()
-#	if Input.is_action_pressed("ui_right"):
-#		motion.x = INIT_VEL
-#	elif Input.is_action_pressed("ui_left"):
-#		motion.x = -INIT_VEL
-	#motion.bounce(collision.normal)
 	
-	velocity = move_and_slide(motion,UP )
-#	move_and_collide(motion*delta)
+	velocity = move_and_slide(motion,UP)
+	
+func bounce():
+	if(bounce_count > 0):
+		for i in get_slide_count():
+			var collision = get_slide_collision(i)
+			bounce_count -= 1
+			bouncing = true
+			motion = motion.bounce(collision.normal)
+			print("bounce_count: ", collision.normal)
+	else: 
+		bouncing = false
 	
 func movement_handler():
 	if Input.is_action_pressed("ui_right"):
