@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/right_corner.png-fe171e782395817bc08b176ad3c2cc3d.stex"
+path="res://.import/level_tile_map.png-8a94bcd5bb6a9830c5bf1ac171418ec5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/level/right_corner.png"
-dest_files=[ "res://.import/right_corner.png-fe171e782395817bc08b176ad3c2cc3d.stex" ]
+source_file="res://sprites/level/level_tile_map.png"
+dest_files=[ "res://.import/level_tile_map.png-8a94bcd5bb6a9830c5bf1ac171418ec5.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

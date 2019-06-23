@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/right corner_bottom.png-1cdaa558fe1826dce714a082b57cf20b.stex"
+path="res://.import/New Piskel clone.png-78105d420bf87e29f1e26c68c2ef9703.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/level/right corner_bottom.png"
-dest_files=[ "res://.import/right corner_bottom.png-1cdaa558fe1826dce714a082b57cf20b.stex" ]
+source_file="res://sprites/level/New Piskel clone.png"
+dest_files=[ "res://.import/New Piskel clone.png-78105d420bf87e29f1e26c68c2ef9703.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

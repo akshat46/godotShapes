@@ -11,6 +11,7 @@ radius = 13.5484
 extents = Vector2( 28.4998, 2.09534 )
 
 [node name="World" type="Node2D"]
+editor/display_folded = true
 __meta__ = {
 "_edit_horizontal_guides_": [ 386.33 ]
 }
@@ -21,6 +22,7 @@ margin_bottom = 600.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="player" type="KinematicBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 320, 250 )
 scale = Vector2( 1.4, 1.4 )
 script = ExtResource( 1 )
@@ -35,6 +37,7 @@ texture = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="Walls" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="floor" type="StaticBody2D" parent="Walls"]
 editor/display_folded = true
