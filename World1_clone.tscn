@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://sprites/circle_resting/sprite_0.png" type="Texture" id=2]
 [ext_resource path="res://sprites/level/level_tile_map.png" type="Texture" id=3]
 [ext_resource path="res://sprites/level/spike.png" type="Texture" id=4]
+[ext_resource path="res://SpikesArea.gd" type="Script" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 13.5484
@@ -125,6 +126,9 @@ points = PoolVector2Array( 0, 25.9059, 3.27186, 20.7654, 6.35617, 14.9706, 8.318
 } ]
 6/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 78, 26 )
+
 [node name="Wall2" type="Node2D"]
 __meta__ = {
 "_edit_horizontal_guides_": [ 386.33 ]
@@ -164,6 +168,16 @@ cell_size = Vector2( 26, 26 )
 format = 1
 tile_data = PoolIntArray( 393216, 1, 0, 393217, 536870915, 0, 393218, 0, 0, 393219, 536870915, 0, 393220, 1, 0, 393221, 1, 0, 393222, 536870915, 0, 393223, 1, 0, 393224, 536870915, 0, 393225, 0, 0, 393226, 536870915, 0, 393227, 0, 0, 393228, 1, 0, 393229, 536870915, 0, 393230, 1, 0, 393231, 536870915, 0, 393232, -1610612734, 0, 458768, -1610612733, 0, 524288, 1610612737, 0, 524289, 1073741824, 0, 524290, 1610612739, 0, 524291, 1610612737, 0, 524292, 1610612739, 0, 524293, 1073741824, 0, 524294, 1610612737, 0, 524295, 1610612739, 0, 524296, 1610612737, 0, 524297, 1610612739, 0, 524298, 1610612739, 0, 524299, 1610612739, 0, 524300, 1073741824, 0, 524301, 1610612739, 0, 524302, 1073741824, 0, 524303, 1610612739, 0, 524304, 1610612738, 0, 720912, 2, 0, 720913, 3, 0, 720914, 3, 0, 720915, -1610612734, 0, 786448, -1073741822, 0, 786449, 1073741825, 0, 786450, 1073741827, 0, 786451, 1610612738, 0, 983052, 2, 0, 983053, 3, 0, 983054, 3, 0, 983055, 3, 0, 983056, -1610612734, 0, 1048588, -1073741823, 0, 1048592, -1610612736, 0, 1114124, -1073741821, 0, 1114128, -1610612733, 0, 1179655, 2, 0, 1179656, 1, 0, 1179657, 0, 0, 1179658, 3, 0, 1179659, 3, 0, 1179660, -1610612731, 0, 1179664, -1610612735, 0, 1245184, 1, 0, 1245185, 0, 0, 1245186, -1610612734, 0, 1245191, -1073741821, 0, 1245200, -1610612735, 0, 1310722, -1610612735, 0, 1310727, -1073741823, 0, 1310736, -1610612733, 0, 1376258, -1610612733, 0, 1376263, -1073741823, 0, 1376272, -1610612736, 0, 1441794, -1610612733, 0, 1441799, -1073741821, 0, 1441808, -1610612733, 0, 1441809, 6, 0, 1441810, 6, 0, 1441811, 6, 0, 1441812, 6, 0, 1441813, 6, 0, 1441814, 6, 0 )
 
+[node name="SpikesArea" type="Area2D" parent="TileMap"]
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/SpikesArea"]
+position = Vector2( 520, 598 )
+shape = SubResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
 [node name="Wall1" type="StaticBody2D" parent="."]
 editor/display_folded = true
 
@@ -175,3 +189,4 @@ editor/display_folded = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall2"]
 polygon = PoolVector2Array( 572, 0, 598, 0, 598, 598, 624, 598, 624, -26, 572, -26 )
+[connection signal="body_entered" from="TileMap/SpikesArea" to="TileMap/SpikesArea" method="_on_SpikesArea_body_entered"]
