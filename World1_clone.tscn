@@ -136,18 +136,27 @@ margin_bottom = 600.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="player" type="KinematicBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 32, 480 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+shape = SubResource( 1 )
+
 [node name="Sprite" type="Sprite" parent="player"]
 texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
-shape = SubResource( 1 )
+[node name="Node" type="Node" parent="player"]
+
+[node name="rightWallRay" type="RayCast2D" parent="player/Node"]
+position = Vector2( 32, 480 )
+cast_to = Vector2( 12, 0 )
+
+[node name="leftWallRay" type="RayCast2D" parent="player/Node"]
+position = Vector2( 32, 480 )
+cast_to = Vector2( -12, 0 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 7 )
@@ -156,11 +165,13 @@ format = 1
 tile_data = PoolIntArray( 393216, 1, 0, 393217, 536870915, 0, 393218, 0, 0, 393219, 536870915, 0, 393220, 1, 0, 393221, 1, 0, 393222, 536870915, 0, 393223, 1, 0, 393224, 536870915, 0, 393225, 0, 0, 393226, 536870915, 0, 393227, 0, 0, 393228, 1, 0, 393229, 536870915, 0, 393230, 1, 0, 393231, 536870915, 0, 393232, -1610612734, 0, 458768, -1610612733, 0, 524288, 1610612737, 0, 524289, 1073741824, 0, 524290, 1610612739, 0, 524291, 1610612737, 0, 524292, 1610612739, 0, 524293, 1073741824, 0, 524294, 1610612737, 0, 524295, 1610612739, 0, 524296, 1610612737, 0, 524297, 1610612739, 0, 524298, 1610612739, 0, 524299, 1610612739, 0, 524300, 1073741824, 0, 524301, 1610612739, 0, 524302, 1073741824, 0, 524303, 1610612739, 0, 524304, 1610612738, 0, 720912, 2, 0, 720913, 3, 0, 720914, 3, 0, 720915, -1610612734, 0, 786448, -1073741822, 0, 786449, 1073741825, 0, 786450, 1073741827, 0, 786451, 1610612738, 0, 983052, 2, 0, 983053, 3, 0, 983054, 3, 0, 983055, 3, 0, 983056, -1610612734, 0, 1048588, -1073741823, 0, 1048592, -1610612736, 0, 1114124, -1073741821, 0, 1114128, -1610612733, 0, 1179655, 2, 0, 1179656, 1, 0, 1179657, 0, 0, 1179658, 3, 0, 1179659, 3, 0, 1179660, -1610612731, 0, 1179664, -1610612735, 0, 1245184, 1, 0, 1245185, 0, 0, 1245186, -1610612734, 0, 1245191, -1073741821, 0, 1245200, -1610612735, 0, 1310722, -1610612735, 0, 1310727, -1073741823, 0, 1310736, -1610612733, 0, 1376258, -1610612733, 0, 1376263, -1073741823, 0, 1376272, -1610612736, 0, 1441794, -1610612733, 0, 1441799, -1073741821, 0, 1441808, -1610612733, 0, 1441809, 6, 0, 1441810, 6, 0, 1441811, 6, 0, 1441812, 6, 0, 1441813, 6, 0, 1441814, 6, 0 )
 
 [node name="Wall1" type="StaticBody2D" parent="."]
+editor/display_folded = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall1"]
 polygon = PoolVector2Array( 0, 598, 0, 0, 494, 0, 494, -26, -26, -26, -26, 598 )
 
 [node name="Wall2" type="StaticBody2D" parent="."]
+editor/display_folded = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall2"]
 polygon = PoolVector2Array( 572, 0, 598, 0, 598, 598, 624, 598, 624, -26, 572, -26 )
