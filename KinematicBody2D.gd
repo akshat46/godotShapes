@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal killed()
+
 const UP = Vector2(0,-1)
 const MAX_VELOCITY = Vector2(300, 40)
 const ACCELERATION = Vector2(40, 4)
@@ -106,3 +108,9 @@ func _movement_handler():
 		motion.x = 0
 	pass
 
+func _death():
+	print("I m dead yo")
+	_reset_to_starting_position()
+	
+func _reset_to_starting_position():
+	print("Reseting to starting position eh")
